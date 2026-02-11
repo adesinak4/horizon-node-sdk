@@ -36,7 +36,7 @@ interface HorizonTransportOptions {
 export default async function (opts: HorizonTransportOptions) {
     const {
         apiKey,
-        ingestUrl = 'http://localhost:5000/v1/ingest',
+        ingestUrl = 'https://horizon-api.bylinee.com/v1/ingest',
         batchSize = 50,
         flushInterval = 2000,
     } = opts;

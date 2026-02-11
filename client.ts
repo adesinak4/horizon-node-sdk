@@ -24,7 +24,7 @@ export class HorizonClient {
 
     constructor(opts: HorizonClientOptions) {
         this.apiKey = opts.apiKey;
-        this.ingestUrl = opts.ingestUrl || 'http://localhost:5000/v1/ingest';
+        this.ingestUrl = opts.ingestUrl || 'https://horizon-api.bylinee.com/v1/ingest';
         this.environment = opts.environment || 'production';
         this.batchSize = opts.batchSize || 50;
         this.flushInterval = opts.flushInterval || 2000;
