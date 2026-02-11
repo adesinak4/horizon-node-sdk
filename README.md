@@ -5,7 +5,7 @@ High-performance observability and logging for Node.js.
 ## Installation
 
 ```bash
-npm install @horizon/node
+npm install @kisameholmes/horizon_node
 ```
 
 ## Features
@@ -20,7 +20,7 @@ npm install @horizon/node
 ## Core Usage
 
 ```typescript
-import { HorizonClient } from '@horizon/node';
+import { HorizonClient } from '@kisameholmes/horizon_node';
 
 const horizon = new HorizonClient({
   apiKey: 'YOUR_API_KEY',
@@ -40,7 +40,7 @@ horizon.autoCaptureErrors();
 
 ```typescript
 import Fastify from 'fastify';
-import { fastifyHorizonMiddleware } from '@horizon/node';
+import { fastifyHorizonMiddleware } from '@kisameholmes/horizon_node';
 
 const app = Fastify();
 app.addHook('onRequest', fastifyHorizonMiddleware(horizon));
@@ -50,7 +50,7 @@ app.addHook('onRequest', fastifyHorizonMiddleware(horizon));
 
 ```typescript
 import express from 'express';
-import { expressHorizonMiddleware } from '@horizon/node';
+import { expressHorizonMiddleware } from '@kisameholmes/horizon_node';
 
 const app = express();
 app.use(expressHorizonMiddleware(horizon));
@@ -63,7 +63,7 @@ app.use(expressHorizonMiddleware(horizon));
 ```typescript
 const logger = pino({
   transport: {
-    target: '@horizon/node/pino',
+    target: '@kisameholmes/horizon_node/pino',
     options: { apiKey: '...' }
   }
 });
@@ -72,7 +72,7 @@ const logger = pino({
 ### Winston
 
 ```typescript
-import { HorizonWinstonTransport } from '@horizon/node';
+import { HorizonWinstonTransport } from '@kisameholmes/horizon_node';
 
 const logger = winston.createLogger({
   transports: [
