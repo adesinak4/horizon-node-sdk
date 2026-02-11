@@ -91,3 +91,7 @@ const logger = winston.createLogger({
 | `batchSize` | number | `50` | Maximum logs per batch. |
 | `flushInterval` | number | `2000` | Max wait time (ms) before flushing. |
 | `maxRetries` | number | `3` | Number of retry attempts for 5xx errors. |
+
+## License
+
+MIT
