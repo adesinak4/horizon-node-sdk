@@ -1,5 +1,5 @@
 {
-    "name": "@horizon/node",
+    "name": "@kisameholmes/horizon_node",
     "version": "1.0.0",
     "description": "High-performance observability and logging for Node.js",
     "main": "./dist/index.js",
