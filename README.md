@@ -86,7 +86,7 @@ const logger = winston.createLogger({
 | Option | Type | Default | Description |
 | --- | --- | --- | --- |
 | `apiKey` | string | **Required** | Your environment API key. |
-| `ingestUrl` | string | `https://api.horizon.live/v1/ingest` | Horizon ingestion endpoint. |
+| `ingestUrl` | string | `https://horizon-api.bylinee.com/v1/ingest` | Horizon ingestion endpoint. |
 | `environment` | string | `production` | Deployment environment name. |
 | `batchSize` | number | `50` | Maximum logs per batch. |
 | `flushInterval` | number | `2000` | Max wait time (ms) before flushing. |
