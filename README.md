@@ -72,7 +72,7 @@ const logger = pino({
 ### Winston
 
 ```typescript
-import { HorizonWinstonTransport } from '@kisameholmes/horizon_node';
+import { HorizonWinstonTransport } from '@kisameholmes/horizon_node/winston';
 
 const logger = winston.createLogger({
   transports: [
