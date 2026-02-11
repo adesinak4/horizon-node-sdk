@@ -1,3 +1,5 @@
+import os from 'os';
+
 export interface HorizonClientOptions {
     apiKey: string;
     ingestUrl?: string;
@@ -19,6 +21,7 @@ export class HorizonClient {
     private batchSize: number;
     private flushInterval: number;
     private maxRetries: number;
+    private sourceHost: string;
     private buffer: any[] = [];
     private timer: NodeJS.Timeout | null = null;
 
@@ -29,6 +32,7 @@ export class HorizonClient {
         this.batchSize = opts.batchSize || 50;
         this.flushInterval = opts.flushInterval || 2000;
         this.maxRetries = opts.maxRetries || 3;
+        this.sourceHost = os.hostname();
 
         if (!this.apiKey) {
             throw new Error('Horizon API Key is required');
@@ -46,6 +50,7 @@ export class HorizonClient {
                 ...metadata,
                 sdk_env: this.environment,
             },
+            source: this.sourceHost,
             timestamp: new Date().toISOString(),
         });
 

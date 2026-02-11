@@ -6,11 +6,16 @@ on:
             - main
             - master
 
+permissions:
+    contents: write
+
 jobs:
     publish:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0 # Required for generating meaningful release notes
 
             - name: Setup Node.js
               uses: actions/setup-node@v4
@@ -28,3 +33,15 @@ jobs:
               run: npm publish --access public
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+            - name: Create GitHub Release
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: |
+                  VERSION=$(node -p "require('./package.json').version")
+                  # Only create a release if the tag doesn't already exist
+                  if ! git rev-parse "v$VERSION" >/dev/null 2>&1; then
+                    gh release create "v$VERSION" --generate-notes --title "Release v$VERSION"
+                  else
+                    echo "Release v$VERSION already exists, skipping..."
+                  fi
